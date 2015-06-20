@@ -1,6 +1,7 @@
 package baozi.webcrawler.common.queue;
 
-import baozi.webcrawler.common.metainfo.BaseToCrawlUrls;
+import java.util.List;
+
 import baozi.webcrawler.common.metainfo.BaseURL;
 
 public interface URLQueue {
@@ -9,5 +10,5 @@ public interface URLQueue {
   
   public BaseURL getNextUrl();
   
-  public void putNextUrls(BaseToCrawlUrls nextUrls);
+  public void putNextUrls(List<BaseURL> nextUrls);
 }

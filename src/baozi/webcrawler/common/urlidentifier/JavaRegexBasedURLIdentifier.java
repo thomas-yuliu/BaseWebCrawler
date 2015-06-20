@@ -8,22 +8,14 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 import baozi.webcralwer.common.utils.LogManager;
-import baozi.webcrawler.common.entry.InstanceFactory;
-import baozi.webcrawler.common.metainfo.BaseRawUrlsOnThePage;
 import baozi.webcrawler.common.metainfo.BaseURL;
-import baozi.webcrawler.common.metainfo.BaseWebPage;
-import baozi.webcrawler.common.metainfo.ListBasedRawUrlsOnThePage;
 
 public class JavaRegexBasedURLIdentifier implements URLIdentifier{
   private LogManager logger = new LogManager(JavaRegexBasedURLIdentifier.class);
 
   @Override
-  public BaseRawUrlsOnThePage extractUrls(BaseURL url) {
-    List<BaseURL> result = grabHTMLLinks(url);
-    BaseRawUrlsOnThePage urls = InstanceFactory
-        .getOneBaseRawUrlsOnThePageInstance();
-    urls.putRawUrls(result);
-    return urls;
+  public List<BaseURL> extractUrls(BaseURL url) {
+    return grabHTMLLinks(url);
   }
 
   private Pattern patternTag, patternLink;

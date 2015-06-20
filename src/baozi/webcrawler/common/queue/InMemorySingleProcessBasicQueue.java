@@ -1,13 +1,11 @@
 package baozi.webcrawler.common.queue;
 
+import java.util.List;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingDeque;
 
 import baozi.webcralwer.common.utils.LogManager;
-import baozi.webcrawler.common.entry.ConfigLoader;
-import baozi.webcrawler.common.metainfo.BaseToCrawlUrls;
 import baozi.webcrawler.common.metainfo.BaseURL;
-import baozi.webcrawler.common.metainfo.ListBasedToCrawlUrls;
 
 public class InMemorySingleProcessBasicQueue implements URLQueue {
   private LogManager logger = new LogManager(InMemorySingleProcessBasicQueue.class);
@@ -26,9 +24,9 @@ public class InMemorySingleProcessBasicQueue implements URLQueue {
   }
 
   @Override
-  public void putNextUrls(BaseToCrawlUrls nextUrls) {
-    if(nextUrls.getToCrawlUrls().size() != 0 && this.nextUrls.size() < 10000){
-      this.nextUrls.addAll(nextUrls.getToCrawlUrls());
+  public void putNextUrls(List<BaseURL> nextUrls) {
+    if(nextUrls.size() != 0 && this.nextUrls.size() < 10000){
+      this.nextUrls.addAll(nextUrls);
     }
   }
 

@@ -1,10 +1,11 @@
 package baozi.webcrawler.common.urlidentifier;
 
-import baozi.webcrawler.common.metainfo.BaseRawUrlsOnThePage;
+import java.util.List;
+
 import baozi.webcrawler.common.metainfo.BaseURL;
 
 public interface URLIdentifier {
   
-  public BaseRawUrlsOnThePage extractUrls(BaseURL url);
+  public List<BaseURL> extractUrls(BaseURL url);
 
 }

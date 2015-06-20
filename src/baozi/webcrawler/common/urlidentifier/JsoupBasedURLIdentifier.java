@@ -5,13 +5,10 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 
 import baozi.webcralwer.common.utils.LogManager;
-import baozi.webcrawler.common.entry.InstanceFactory;
-import baozi.webcrawler.common.metainfo.BaseRawUrlsOnThePage;
 import baozi.webcrawler.common.metainfo.BaseURL;
 import baozi.webcrawler.common.metainfo.JsoupDocWebPage;
 
@@ -19,12 +16,8 @@ public class JsoupBasedURLIdentifier implements URLIdentifier{
   private LogManager logger = new LogManager(JsoupBasedURLIdentifier.class);
 
   @Override
-  public BaseRawUrlsOnThePage extractUrls(BaseURL url) {
-    List<BaseURL> result = grabHTMLLinks(url);
-    BaseRawUrlsOnThePage urls = InstanceFactory
-        .getOneBaseRawUrlsOnThePageInstance();
-    urls.putRawUrls(result);
-    return urls;
+  public List<BaseURL> extractUrls(BaseURL url) {
+    return grabHTMLLinks(url);
   }
 
   private List<BaseURL> grabHTMLLinks(BaseURL url) {

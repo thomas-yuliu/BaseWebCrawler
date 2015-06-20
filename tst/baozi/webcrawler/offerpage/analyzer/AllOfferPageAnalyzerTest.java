@@ -2,6 +2,7 @@ package baozi.webcrawler.offerpage.analyzer;
 
 import org.junit.Test;
 
+import baozi.webcrawler.common.entry.InstanceFactory;
 import baozi.webcrawler.common.metainfo.BaseURL;
 import baozi.webcrawler.common.metainfo.BaseWebPage;
 
@@ -10,7 +11,7 @@ public class AllOfferPageAnalyzerTest {
   private static final OfferPageAnalyzer offerPageAnalyzer = new JavaPatternBasedOfferPageAnalyzer();
   
   private boolean isAnOfferPage(String html){
-    BaseWebPage page = new BaseWebPage(html);
+    BaseWebPage page = InstanceFactory.getOneWebPage();
     BaseURL url = new BaseURL(null, page);
     return offerPageAnalyzer.isAnOfferPage(url);
   }

@@ -1,0 +1,11 @@
+{
+	"seeding_url" : [
+		"http://www.1point3acres.com/bbs/forum-145-1.html",
+		"http://www.1point3acres.com/bbs/forum.php?mod=forumdisplay&fid=145&sortid=311&sortid=311&page=2"
+	],
+	"max_depth" : "1",
+	
+	"performance":{
+		"memory":1000
+	}
+}

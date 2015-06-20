@@ -28,20 +28,20 @@ public class LogManager {
 
   public void logDebug(String msg) {
     if (shouldThisClassLog(className)) {
-      System.out.println(msg);
+      //System.out.println(msg);
     }
   }
 
   private static Set<String> loggingClasses = new HashSet<>(Arrays.asList(
       "baozi.webcrawler.common.urlidentifier.URLIdentifier",
       "baozi.webcrawler.common.urlidentifier.UrlIdentifierTest",
-      "baozi.webcrawler.common.urlidentifier.JsoupBasedURLIdentifier", 
+      //"baozi.webcrawler.common.urlidentifier.JsoupBasedURLIdentifier", 
       "baozi.webcrawler.common.entry.ConfigLoader",
       "baozi.webcrawler.common.metainfo.BaseURL",
       "baozi.webcrawler.common.urlfilter.PostExpansionFilterEnforcer", 
-      "baozi.webcrawler.common.urlfilter.FilterEnforcer",
-      "baozi.webcrawler.common.urlfilter.InMemroySeenUrlFilter",
-      "baozi.webcrawler.common.urlfilter.UrlDepthFilter",
+      //"baozi.webcrawler.common.urlfilter.FilterEnforcer",
+      //"baozi.webcrawler.common.urlfilter.InMemroySeenUrlFilter",
+      //"baozi.webcrawler.common.urlfilter.UrlDepthFilter",
       "baozi.webcrawler.common.urlfilter.FileExtensionFilter",
       "baozi.webcrawler.offerpage.analyzer.JavaPatternBasedOfferPageAnalyzer", 
       "baozi.webcrawler.offerpage.analyzer.JsoupBasedOfferPageAnalyzer", 
