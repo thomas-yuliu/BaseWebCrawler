@@ -8,7 +8,7 @@ import baozi.webcrawler.common.metainfo.BaseURL;
 import baozi.webcrawler.common.webcomm.HTTPWebCommManager;
 
 public class InMemroySeenUrlFilter implements Filter {
-  private LogManager logger = new LogManager(InMemroySeenUrlFilter.class);
+  private static LogManager logger = new LogManager(InMemroySeenUrlFilter.class);
 
   private Set<BaseURL> seen = new HashSet<>();
 

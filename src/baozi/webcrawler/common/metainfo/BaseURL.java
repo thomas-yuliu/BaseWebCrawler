@@ -1,13 +1,14 @@
 package baozi.webcrawler.common.metainfo;
 
+import java.io.Serializable;
 import java.net.URL;
 
 import baozi.webcralwer.common.utils.LogManager;
 import baozi.webcrawler.common.webcomm.HTTPWebCommManager;
 import baozi.webcrawler.common.webcomm.WebCommManager;
 
-public class BaseURL {
-  private LogManager logger = new LogManager(BaseURL.class);
+public class BaseURL implements Serializable{
+  private transient LogManager logger = new LogManager(BaseURL.class);
 
   private URL url;
   private int depthFromSeed = -1;

@@ -4,7 +4,7 @@ import baozi.webcralwer.common.utils.LogManager;
 import baozi.webcrawler.common.metainfo.BaseURL;
 
 public class UrlDepthFilter implements Filter {
-  private LogManager lm = new LogManager(UrlDepthFilter.class);
+  private static transient LogManager lm = new LogManager(UrlDepthFilter.class);
   private int depthCeiling; //no more than this ceiling
   public UrlDepthFilter(int depth){
     depthCeiling = depth;

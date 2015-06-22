@@ -3,13 +3,8 @@ package baozi.webcrawler.offerpage.analyzer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.jsoup.Jsoup;
-import org.jsoup.nodes.Document;
-
 import baozi.webcralwer.common.utils.LogManager;
 import baozi.webcrawler.common.metainfo.BaseURL;
-import baozi.webcrawler.common.metainfo.HtmlStringWebPage;
-import baozi.webcrawler.common.urlidentifier.UrlIdentifierTest;
 import baozi.webcrawler.offerpage.entry.InstanceFactory;
 
 public class JavaPatternBasedOfferPageAnalyzer implements OfferPageAnalyzer {

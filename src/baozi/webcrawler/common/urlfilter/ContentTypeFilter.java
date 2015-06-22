@@ -10,7 +10,7 @@ import baozi.webcralwer.common.utils.LogManager;
 import baozi.webcrawler.common.metainfo.BaseURL;
 
 public class ContentTypeFilter implements Filter {
-  private LogManager logger = new LogManager(ContentTypeFilter.class);
+  private static transient LogManager logger = new LogManager(ContentTypeFilter.class);
 
   private Set<String> contentTypeToDrop = new HashSet<String>(Arrays.asList(
       "application/javascript", "application/json", "text/plain", "image/jpeg",

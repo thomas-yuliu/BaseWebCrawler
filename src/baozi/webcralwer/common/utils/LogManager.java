@@ -28,7 +28,7 @@ public class LogManager {
 
   public void logDebug(String msg) {
     if (shouldThisClassLog(className)) {
-      //System.out.println(msg);
+      System.out.println(msg);
     }
   }
 
@@ -55,7 +55,8 @@ public class LogManager {
     if (loggingClasses.contains(className)) {
       return true;
     } else {
-      return false;
+      //return false;
+      return true;
     }
   }
 }

@@ -1,6 +1,8 @@
 package baozi.webcrawler.common.metainfo;
 
-public abstract class BaseWebPage {
+import java.io.Serializable;
+
+public abstract class BaseWebPage implements Serializable{
   private String title;
 
   public String getTitle() {
