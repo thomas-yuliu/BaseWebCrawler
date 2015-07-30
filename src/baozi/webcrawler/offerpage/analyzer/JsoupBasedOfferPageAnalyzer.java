@@ -10,14 +10,9 @@ import baozi.webcrawler.common.metainfo.BaseURL;
 import baozi.webcrawler.common.metainfo.JsoupDocWebPage;
 import baozi.webcrawler.offerpage.entry.InstanceFactory;
 
-public class JsoupBasedOfferPageAnalyzer implements OfferPageAnalyzer {
+public class JsoupBasedOfferPageAnalyzer extends OfferPageAnalyzer {
   private LogManager lm = new LogManager(JsoupBasedOfferPageAnalyzer.class);
   private static final String JAVA_PATTERN = ".(offer|OFFER|Offer).";
-
-  @Override
-  public void analyze(BaseURL url) {
-    isAnOfferPage(url);
-  }
 
   @Override
   public boolean isAnOfferPage(BaseURL url) {
@@ -32,12 +27,6 @@ public class JsoupBasedOfferPageAnalyzer implements OfferPageAnalyzer {
     Pattern patternTag = Pattern.compile(JAVA_PATTERN);
     Matcher matcherTag = patternTag.matcher(title);
     boolean result = matcherTag.find();
-    if(result){
-      lm.logInfo(url.getUrl().toString() + " is possibly an offer page");
-      InstanceFactory.getOfferPageStorage().storeOfferPage(url);
-    } else {
-      lm.logInfo(url.getUrl().toString() + " is not an offer page");
-    }
     return result;
   }
 

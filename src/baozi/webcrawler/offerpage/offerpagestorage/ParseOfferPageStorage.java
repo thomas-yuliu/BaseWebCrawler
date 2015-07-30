@@ -40,14 +40,25 @@ public class ParseOfferPageStorage implements OfferPageStorage {
       con.setRequestProperty(api_key_tag, api_key);
       con.setRequestProperty(content_type_tag, content_type_json);
       
-      Random generator = new Random();
-      int i = generator.nextInt() % 3;
-      String[] companies = {"Google", "Facebook", "Amazon"};
-      String[] compensations = {"Base: 130k", "Base: 111k", "Base: 310k"};
-      logger.logInfo("i is: " + i);
-      String company = companies[i];
-      String compensation = compensations[i];
-
+      String company = null;
+      String[] companies = {"Google", "G家","Facebook", "F家", "Amazon", "亚麻", "亚马逊", "Uber", "Zenefits","Airbnb","Slack", "Microsoft", "微软", "Linkedin", "L家","Twitter", "T家"};
+      for(String itr : companies){
+        if(url.getPageContent().getPageHtml().contains(itr)){
+          company = itr;
+          break;
+        }
+      }
+      String compensation = null;
+      int pos = url.getPageContent().getPageHtml().indexOf("Base");
+      if(pos >= 0){
+        compensation = url.getPageContent().getPageHtml().substring(pos, pos + 10);
+      } else {
+      pos = url.getPageContent().getPageHtml().indexOf("base");
+      if(pos >= 0){
+        compensation = url.getPageContent().getPageHtml().substring(pos, pos + 10);
+      }
+      }
+      
       String objToPut = "{\"companyName\": \"" + company + "\", \"compensation\": \"" + compensation + "\", \"title\":\"Software Engineer\", \"source\":\""+url.getUrl().toString()+"\"}";
 
       // Send post request
